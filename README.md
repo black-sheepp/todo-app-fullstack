@@ -5,7 +5,6 @@
 - [Technologies Used](#technologies-used)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Authentication](#authentication)
 
 ## Project Overview
 
@@ -77,8 +76,3 @@ npm run dev
 
  Application should now be accessible at `http://localhost:5173`.
 
-## Authentication
-
-Explain how the authentication using JWT works in your project. For example:
-
-- To access protected routes, include a valid JWT token in the `Authorization` header of your HTTP requests.
