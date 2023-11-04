@@ -48,20 +48,18 @@ npm install
 Before running the project, you need to set up your environment variables. Create a `.env` file in the backend directory and add the following variables:
 
 ```dotenv
-# MongoDB connection URL
-username: <mongoatlas_username>
-password: <mongoatlas_password>
-
-# JWT Secret key for authentication
-JWT_SECRET= <yourSecretKey>
-
 #for testing this app, please provide my credentials 
 username: fullstackmerndevelop
 password: nkyZWreOggoGcop9
 JWT_SECRET = shivamguptanitw
 
-testing email: shivam888500@gmail.com
+testing_email: shivam888500@gmail.com
 password: shivam
+
+# MongoDB connection and JWT credentials (please provide your own credetials to use this app on local machine
+username: <mongoatlas_username>
+password: <mongoatlas_password>
+JWT_SECRET= <yourSecretKey>
 ```
 
 Replace `username`, `password`, and `yourSecretKey` with your MongoDB credentials and a secret key for JWT.
