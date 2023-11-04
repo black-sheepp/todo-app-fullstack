@@ -105,7 +105,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 												{item.level}
 											</button>
 											<button className='mt-2 px-2 py-1 rounded-lg text-sm cursor-text text-red-500 h-8'>
-												{item.deadline}
+												{(item.deadline).slice(0,10)}
 											</button>
 										</div>
 									</div>
@@ -136,7 +136,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 												{item.level}
 											</button>
 											<button className='mt-2 px-2 py-1 rounded-lg text-sm cursor-text text-red-500 h-8'>
-												{item.deadline}
+											{(item.deadline).slice(0,10)}
 											</button>
 										</div>
 									</div>
