@@ -37,24 +37,35 @@ module.exports.getTodosByUserId = async function (req, res) {
 	}
 };
 
+
 module.exports.deleteToDo = async function(req,res){
     try {
         const todo = await Todo.findByIdAndDelete(req.params.id);
+
+        if (!todo) {
+            return res.status(404).json({ message: "Todo not found" });
+        }
+
         res.status(200).json({ message: "Todo deleted successfully" });
     } catch (error) {
-        console.error("Error deleting todos:", error);
+        console.error("Error deleting todo:", error);
         res.status(500).json({ message: "Internal Server Error" });
     }
 }
 
 module.exports.markAsDone = async function(req,res){
     try {
-        const todo = await Todo.findByIdAndUpdate(req.params.id,{
+        const todo = await Todo.findByIdAndUpdate(req.params.id, {
             task: true,
-        });
-        res.status(200).json({ message: "Todo Marked successfully" });
+        }, { new: true }); 
+
+        if (!todo) {
+            return res.status(404).json({ message: "Todo not found" });
+        }
+
+        res.status(200).json({ message: "Todo Marked successfully", todo });
     } catch (error) {
-        console.error("Error deleting todos:", error);
+        console.error("Error marking todo as done:", error);
         res.status(500).json({ message: "Internal Server Error" });
     }
 }
