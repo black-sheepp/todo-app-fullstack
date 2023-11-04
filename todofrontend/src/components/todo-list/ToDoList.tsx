@@ -83,7 +83,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 					{activeTodos.length > 0 &&
 						activeTodos.map((item) => (
 							<li key={item._id}>
-								<div className='w-auto bg-yellow-100 rounded-xl px-6 py-2 m-1 text-2xl dark:bg-gray-900'>
+								<div className='w-auto bg-yellow-100 rounded-xl px-6 py-2 m-1 text-xl dark:bg-gray-900'>
 									<p>{item.todoname}</p>
 									<div className='flex justify-between'>
 										<div className='flex text-black'>
@@ -120,7 +120,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 					{completedTodos.length > 0 &&
 						completedTodos.map((item) => (
 							<li key={item._id}>
-								<div className='w-full bg-red-100 rounded-xl px-6 py-2 m-1 text-2xl dark:bg-blue-950 text-red-600'>
+								<div className='w-full bg-red-100 rounded-xl px-6 py-2 m-1 text-xl dark:bg-blue-950 text-green-500'>
 									<p>{item.todoname}</p>
 									<div className='flex justify-between'>
 										<div className='flex text-black'>
