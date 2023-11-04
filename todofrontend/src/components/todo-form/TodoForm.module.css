@@ -1,0 +1,19 @@
+.input[type=text] {
+    width: 25rem;
+    background-color: #fff;
+    color: #242424;
+    padding: .15rem 1rem;
+    min-height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 10px 20px -18px #bc00dd;
+    border-bottom: 3px solid #bc00dd;
+    transition: .10s ease;
+    margin-bottom: 10px;
+}
+
+.input[type=text]:hover {
+    outline: 2px solid #bc00dd;
+    width: 25rem;
+}
