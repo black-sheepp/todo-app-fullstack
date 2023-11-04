@@ -18,32 +18,36 @@ interface ToDoListProps {
 const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 	const [activeTodos, setActiveTodos] = useState<Todo[]>([]);
 	const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
-	const [render, setRender] = useState(false);
 
-	const updateLocalStorage = async (_id: String) => {
-		const response = await axios.get(`${BASE_URL}/${_id}/getTodos`);
-		const todoList = response.data;
-		localStorage.setItem("todos", JSON.stringify(todoList));
+	const updateLocalStorage = async () => {
+		const dataString = localStorage.getItem("data");
+		if (dataString) {
+			const data = JSON.parse(dataString);
+			// console.log("-----data : ", data);
+			const response = await axios.get(`${BASE_URL}/${data._id}/getTodos`);
+			const todoList = response.data;
+			localStorage.setItem("todos", JSON.stringify(todoList));
+			setTodos(todoList);
+		} else {
+			console.error("No data found in localStorage");
+		}
 	};
 
 	const handleTodoDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		const _id = e.currentTarget.value;
 		try {
 			await axios.delete(`${BASE_URL}/${_id}/delete`);
-			updateLocalStorage(_id);
-			render ? setRender(false) : setRender(true);
+			updateLocalStorage();
 		} catch (error) {
 			console.error("Error deleting todo:", error);
 		}
 	};
 
-
 	const handleTodoDone = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		const _id = e.currentTarget.value;
 		try {
 			await axios.post(`${BASE_URL}/${_id}/markasdone`, true);
-			updateLocalStorage(_id);
-			render ? setRender(false) : setRender(true);
+			updateLocalStorage();
 		} catch (error) {
 			console.error("Error marking todo as done:", error);
 		}
@@ -69,7 +73,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todos, setTodos }) => {
 
 	useEffect(() => {
 		fetchData();
-	}, [todos, render]);
+	}, [todos]);
 
 	return (
 		<div className='flex flex-col justify-center w-full px-2 md:px-28 lg:grid grid-cols-2 gap-12'>
