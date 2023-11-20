@@ -48,10 +48,7 @@ npm install
 Before running the project, you need to set up your environment variables. Create a `.env` file in the backend directory and add the following variables:
 
 ```dotenv
-#COMPETISHUN testing this app, please provide my credentials (This test case is for Competishun only)
-username: fullstackmerndevelop
-password: nkyZWreOggoGcop9
-JWT_SECRET = shivamguptanitw
+
 
 testing_email: shivam888500@gmail.com
 password: shivam
